@@ -6,18 +6,24 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="js/main.js"></script>
+    <script src="js/taskMethods.js"></script>
+    <script src="js/createButtonsInList.js"></script>
 </head>
 <body>
 <header><h3>Todo list</h3></header>
-<form>
+<div style="display: flex">
+    <form>
+        <div>
+            <input type="text" id="taskInput" placeholder="task name">
+            <input type="button" id="addTaskButton" value="Add task"/>
+            <button type="submit">Submit</button>
+        </div>
+        <div id="taskTablesWrap"></div>
+    </form>
     <div>
-        <input type="text" id="taskInput" placeholder="task name">
-        <input type="button" id="addTaskButton" value="Add task"/>
-        <button type="submit">Submit</button>
+        <input type="button" id="addList" value="Add table"/>
     </div>
-    <ul id="taskList"></ul>
-</form>
+</div>
 </body>
-<script src="js/main.js"></script>
-<script type="module" src="js/rebuildList.js"></script>
 </html>
