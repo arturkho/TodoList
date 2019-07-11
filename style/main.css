@@ -1,0 +1,7 @@
+.table {
+    border: 2px ridge gray;
+    cursor: pointer;
+    list-style: none;
+    padding: 1em;
+    margin: 10px;
+}

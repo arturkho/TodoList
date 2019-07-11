@@ -1,5 +1,10 @@
 function createItemInTable(appendTask, id, tasksTable) {
-    appendTask.setAttribute('class', "task");
-    // appendTask.setAttribute('id', `row${id}${tableId}`);
-    appendTask.innerHTML = `<p>${tasksTable[id].name}</p>`;
+    let taskName = "error";
+    appendTask.setAttribute('id', `row${id}`);
+    tasksTable.forEach((task)=>{
+        task.taskId === id ? taskName = task.name : taskName
+    });
+    appendTask.setAttribute('class', 'task');
+
+    appendTask.innerHTML = `<p>${taskName}</p>`;
 }
