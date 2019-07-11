@@ -1,4 +1,4 @@
-function createTask(tasksTables, selectedTableId) {
+function createTask(tasksTables) {
   let inputValue = document.querySelector('#taskInput').value;
   let taskId = '_' + Math.random().toString(36).substr(2, 9);
 

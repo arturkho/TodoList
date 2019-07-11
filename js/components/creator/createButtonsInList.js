@@ -16,7 +16,11 @@ function createButtonsInTable(appendTask, id, tasksTable) {
     });
 
     let isFinishedTask = appendTask.appendChild(document.createElement('input'));
-    appendTask.appendChild(document.createElement('label')).innerHTML = 'is ready?';
-    isFinishedTask.type = 'checkbox';
-    isFinishedTask.setAttribute('id', `checkbox${id}`);
+    isFinishedTask.type = 'button';
+    isFinishedTask.value = 'ready';
+    isFinishedTask.setAttribute('id', `ready${id}`);
+    isFinishedTask.setAttribute('class', `isDone`)
+    document.querySelector(`#ready${id}`).addEventListener('click', () => {
+        doneTask(id, tasksTable)
+    });
 }

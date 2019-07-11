@@ -19,7 +19,7 @@ function changeTask(taskId, tasksTables) {
     for(let i = 0; i < tasksTables.length; i++){
       for (let z = 0; z < tasksTables[i].length; z++){
         if(tasksTables[i][z].taskId === taskId){
-          tasksTables[i].splice(z, 1, {name: changeValue, taskId: taskId})
+          tasksTables[i].splice(z, 1, {name: changeValue, taskId: taskId, isReady: tasksTables[i][z].isReady})
         }
       }
     }
