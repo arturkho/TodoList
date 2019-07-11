@@ -17,15 +17,14 @@ function changeTask(taskId, tasksTables) {
     document.querySelector(`#row${taskId}`).getElementsByTagName('p')[0].innerHTML = changeValue;
 
     for(let i = 0; i < tasksTables.length; i++){
-      for (let z = 0; z < tasksTables[i].length; z++){
-        if(tasksTables[i][z].taskId === taskId){
-          tasksTables[i].splice(z, 1, {name: changeValue, taskId: taskId, isReady: tasksTables[i][z].isReady})
+      for (let z = 0; z < tasksTables[i].table.length; z++){
+        if(tasksTables[i].table[z].taskId === taskId){
+          tasksTables[i].table.splice(z, 1, {name: changeValue, taskId: taskId, isReady: tasksTables[i].table[z].isReady})
         }
       }
     }
     acceptChanges.remove();
     changeInput.remove();
-
     setToLocalStorage(tasksTables)
   });
 }

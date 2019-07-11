@@ -1,7 +1,7 @@
 function createButtonsInTable(appendTask, id, tasksTable) {
     let deleteButton = appendTask.appendChild(document.createElement('input'));
     deleteButton.type = 'button';
-    deleteButton.value = 'x';
+    deleteButton.value = 'delete';
     deleteButton.setAttribute('id', `deleteButton${id}`);
     document.querySelector(`#deleteButton${id}`).addEventListener('click', () => {
         removeTask(id, tasksTable);
