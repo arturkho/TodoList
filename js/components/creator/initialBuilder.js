@@ -6,7 +6,7 @@ function initialBuilder(tasksTables) {
         table.setAttribute('class', `table`);
         let taskTableList = document.querySelector(`#ul${i}`);
         createTableHeader(taskTableList, tasksTables, i);
-        createTask(tasksTables, i, taskTableList)
+        taskCreator(tasksTables, i, taskTableList)
     }
     selectList()
 }
@@ -19,7 +19,7 @@ function createTableHeader(taskTableList, tasksTables, index){
     taskHeader.innerHTML =`Table: ${tasksTables[index].tableName}`
 }
 
-function createTask(tasksTables, i, taskTableList){
+function taskCreator(tasksTables, i, taskTableList){
     for (let z = 0; z < tasksTables[i].table.length; z++) {
         let appendTask = taskTableList.appendChild(document.createElement('li'));
         taskTableList.style = 'list-style: none';

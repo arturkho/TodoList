@@ -43,8 +43,8 @@ function setTableName(tasksTables, tableName){
     table.setAttribute('class', `table`);
 
     let createTaskHeader = table.appendChild(document.createElement('li'));
-    createTaskHeader.setAttribute('id', `li${tasksTables.length - 1}`);
-    let taskHeader = document.querySelector(`#li${tasksTables.length - 1}`);
+    createTaskHeader.setAttribute('id', `li${tasksTables.length}`);
+    let taskHeader = document.querySelector(`#li${tasksTables.length}`);
 
     taskHeader.innerHTML = tableName === "" ? "No name" : `Table: ${tableName}`;
     taskHeader.style = "display: flex";
