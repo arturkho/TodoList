@@ -19,7 +19,7 @@ function createButtonsInTable(appendTask, id, tasksTable) {
     isFinishedTask.type = 'button';
     isFinishedTask.value = 'ready';
     isFinishedTask.setAttribute('id', `ready${id}`);
-    isFinishedTask.setAttribute('class', `isDone`)
+    isFinishedTask.setAttribute('class', `isDone`);
     document.querySelector(`#ready${id}`).addEventListener('click', () => {
         doneTask(id, tasksTable)
     });
