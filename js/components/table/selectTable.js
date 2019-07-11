@@ -1,5 +1,4 @@
 function selectTable(selectedTableId){
-    console.log(selectedTableId);
     let selectedTable = document.querySelector(`#ul${selectedTableId}`);
     if(selectedTable !== null){
         selectedTable.addEventListener('click', ()=>{

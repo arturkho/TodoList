@@ -16,11 +16,11 @@ function createTable(tasksTables){
         acceptChanges.remove();
         changeInput.remove();
         setTableName(tasksTables, tableName);
-        addTask(tasksTables, tableName)
+        addTaskInNewTable(tasksTables, tableName)
     })
 }
 
-function addTask(tasksTables, tableName){
+function addTaskInNewTable(tasksTables, tableName){
     document.querySelector('#taskInput').style = "display: flex";
     if (tasksTables !== [{}]) {
         tasksTables.push({tableName: tableName, table: []});
