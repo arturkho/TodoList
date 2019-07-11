@@ -12,6 +12,9 @@ function init() {
     document.querySelector('#addTaskButton').addEventListener('click', () => {
         createTask(tasksTables);
     });
+    document.querySelector('#deleteList').addEventListener('click', () => {
+        removeTable(tasksTables);
+    });
 }
 
 window.onload = init;
