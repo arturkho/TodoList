@@ -16,13 +16,14 @@ function changeTask(taskId, tasksTables) {
     let changeValue = document.querySelector(`#changeInput${taskId}`).value;
     document.querySelector(`#row${taskId}`).getElementsByTagName('p')[0].innerHTML = changeValue;
 
-    for(let i = 0; i < tasksTables.length; i++){
-      for (let z = 0; z < tasksTables[i].table.length; z++){
-        if(tasksTables[i].table[z].taskId === taskId){
-          tasksTables[i].table.splice(z, 1, {name: changeValue, taskId: taskId, isReady: tasksTables[i].table[z].isReady})
+    tasksTables.forEach((tables)=>{
+      tables.table.forEach((task, index)=>{
+        if(task.taskId === taskId){
+          tables.table.splice(index, 1, {name: changeValue, taskId: taskId, isReady: task.isReady})
         }
-      }
-    }
+      })
+    });
+
     acceptChanges.remove();
     changeInput.remove();
     setToLocalStorage(tasksTables)

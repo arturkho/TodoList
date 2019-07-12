@@ -2,9 +2,9 @@ function initialBuilder(tasksTables) {
     for (let i = 0; i < tasksTables.length; i++) {
         let tableWrap = document.querySelector('#taskTablesWrap');
         let table = tableWrap.appendChild(document.createElement('ul'));
-        table.setAttribute('id', `ul${i}`);
+        table.setAttribute('id', `${tasksTables[i].tableId}`);
         table.setAttribute('class', `table`);
-        let taskTableList = document.querySelector(`#ul${i}`);
+        let taskTableList = document.querySelector(`#${tasksTables[i].tableId}`);
         createTableHeader(taskTableList, tasksTables, i);
         taskCreator(tasksTables, i, taskTableList)
     }
@@ -39,7 +39,7 @@ function selectList(){
     let allTables = document.querySelectorAll('.table');
     for (let i = 0; i < allTables.length; i++) {
         allTables[i].addEventListener('click', () => {
-            selectedTableId = i;
+            selectedTableId = allTables[i].id;
             selectTable(selectedTableId);
         });
     }

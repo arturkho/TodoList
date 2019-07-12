@@ -1,12 +1,13 @@
 function removeTask(taskId, tasks) {
   let taskTableList = document.getElementsByTagName('li');
-  for(let i = 0; i < tasks.length; i++){
-    for (let z = 0; z < tasks[i].table.length; z++){
-      if(tasks[i].table[z].taskId === taskId){
-        tasks[i].table.splice(z, 1)
+  tasks.forEach((tables)=>{
+    tables.table.forEach((task, index)=>{
+      if(task.taskId === taskId){
+        tables.table.splice(index, 1)
       }
-    }
-  }
+    })
+  });
+
   for (let i = 0; i < taskTableList.length; i++) {
     if (taskTableList[i] === document.querySelector(`#row${taskId}`)) {
       document.querySelector(`#row${taskId}`).remove()

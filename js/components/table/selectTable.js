@@ -1,5 +1,6 @@
-function selectTable(selectedTableId){
-    let selectedTable = document.querySelector(`#ul${selectedTableId}`);
+function selectTable(tableId){
+    let selectedTable = document.querySelector(`#${tableId}`);
+
     if(selectedTable !== null){
         selectedTable.addEventListener('click', ()=>{
             let allTables = document.querySelectorAll('.table');
