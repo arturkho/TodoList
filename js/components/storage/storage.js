@@ -1,8 +1,8 @@
 function setToLocalStorage(tasksTables){
-  if(JSON.parse(localStorage.getItem('tables')) && JSON.parse(localStorage.getItem('tables')) !== []){
+  if(JSON.parse(localStorage.getItem('lists')) && JSON.parse(localStorage.getItem('lists')) !== []){
       localStorage.removeItem(tasksTables);
-      localStorage.setItem('tables', JSON.stringify(tasksTables))
+      localStorage.setItem('lists', JSON.stringify(tasksTables))
   }else{
-      localStorage.setItem('tables', JSON.stringify(tasksTables))
+      localStorage.setItem('lists', JSON.stringify(tasksTables))
   }
 }

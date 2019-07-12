@@ -1,8 +1,8 @@
 'use strict';
-let selectedTableId = 0;
+let selectedListId = 0;
 function init() {
     let tasksTables = [];
-    localStorage.getItem('tables') ? tasksTables = JSON.parse(localStorage.getItem('tables')) : null;
+    localStorage.getItem('lists') ? tasksTables = JSON.parse(localStorage.getItem('lists')) : null;
     if(tasksTables !== [{}]){
         initialBuilder(tasksTables);
     }
@@ -13,13 +13,13 @@ function init() {
         document.querySelector('#taskInput').style = "display: flex"
     }
     document.querySelector('#addList').addEventListener('click', () => {
-        createTable(tasksTables);
+        createList(tasksTables);
     });
     document.querySelector('#addTaskButton').addEventListener('click', () => {
         createTask(tasksTables);
     });
     document.querySelector('#deleteList').addEventListener('click', () => {
-        removeTable(tasksTables);
+        removeList(tasksTables);
     });
 }
 

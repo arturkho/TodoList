@@ -1,5 +1,5 @@
 .table {
-    border: 2px ridge gray;
+    border: 1px solid gray;
     cursor: pointer;
     list-style: none;
     padding: 1em;

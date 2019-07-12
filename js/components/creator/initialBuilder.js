@@ -1,46 +1,48 @@
-function initialBuilder(tasksTables) {
-    for (let i = 0; i < tasksTables.length; i++) {
-        let tableWrap = document.querySelector('#taskTablesWrap');
-        let table = tableWrap.appendChild(document.createElement('ul'));
-        table.setAttribute('id', `${tasksTables[i].tableId}`);
-        table.setAttribute('class', `table`);
-        let taskTableList = document.querySelector(`#${tasksTables[i].tableId}`);
-        createTableHeader(taskTableList, tasksTables, i);
-        taskCreator(tasksTables, i, taskTableList)
-    }
+function initialBuilder(tasksLists) {
+    tasksLists.forEach((list)=>{
+        let listWrap = document.querySelector('#taskTablesWrap');
+        let listItem = listWrap.appendChild(document.createElement('ul'));
+        listItem.setAttribute('id', `${list.listId}`);
+        listItem.setAttribute('class', `table`);
+        let taskContainer = document.querySelector(`#${list.listId}`);
+        createTableHeader(list, taskContainer);
+        taskCreator(list, taskContainer)
+    });
     selectList()
 }
 
-function createTableHeader(taskTableList, tasksTables, index){
-    let createTaskHeader = taskTableList.appendChild(document.createElement('li'));
-    createTaskHeader.setAttribute('id', `li${tasksTables[index].tableName}`);
-    let taskHeader = document.querySelector(`#li${tasksTables[index].tableName}`);
+function createTableHeader(list, taskContainer){
+    let createTaskHeader = taskContainer.appendChild(document.createElement('li'));
+    createTaskHeader.setAttribute('id', `li${list.listName}`);
+    let taskHeader = document.querySelector(`#li${list.listName}`);
     taskHeader.style = "display: flex; font-size: 18; font-style: bold";
-    taskHeader.innerHTML =`Table: ${tasksTables[index].tableName}`
+    taskHeader.innerHTML =`Table: ${list.listName}`
 }
 
-function taskCreator(tasksTables, i, taskTableList){
-    for (let z = 0; z < tasksTables[i].table.length; z++) {
-        let appendTask = taskTableList.appendChild(document.createElement('li'));
-        taskTableList.style = 'list-style: none';
-        createItemInTable(appendTask, tasksTables[i].table[z].taskId, tasksTables[i].table);
-        createButtonsInTable(appendTask, tasksTables[i].table[z].taskId, tasksTables);
+function taskCreator(list, taskContainer){
+    console.log(list)
+    list.tasks.forEach((task)=>{
+        let appendTask = taskContainer.appendChild(document.createElement('li'));
+        taskContainer.style = 'list-style: none';
 
-        let task = document.querySelector(`#row${tasksTables[i].table[z].taskId}`);
-        if (tasksTables[i].table[z].isReady) {
-            task.style = "text-decoration: line-through; color: gray"
+        createItemInTable(appendTask, task.taskId, list.tasks);
+        createButtonsInTable(appendTask, task.taskId, list);
+
+        let taskItem = document.querySelector(`#row${task.taskId}`);
+        if (task.isReady) {
+            taskItem.style = "text-decoration: line-through; color: gray"
         } else {
-            task.style = "color: black";
+            taskItem.style = "color: black";
         }
-    }
+    })
 }
 
 function selectList(){
-    let allTables = document.querySelectorAll('.table');
-    for (let i = 0; i < allTables.length; i++) {
-        allTables[i].addEventListener('click', () => {
-            selectedTableId = allTables[i].id;
-            selectTable(selectedTableId);
+    let allLists = document.querySelectorAll('.table');
+    for (let i = 0; i < allLists.length; i++) {
+        allLists[i].addEventListener('click', () => {
+            selectedListId = allLists[i].id;
+            selectList(selectedListId);
         });
     }
 }

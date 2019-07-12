@@ -1,4 +1,4 @@
-function setTableName(tasksTables, tableName, tableId) {
+function setListName(tasksTables, tableName, tableId) {
     let tableNameLi = document.createElement('li');
     tableNameLi.setAttribute('id', `li${tasksTables.length}`);
 

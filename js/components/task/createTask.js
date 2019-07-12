@@ -1,23 +1,23 @@
-function createTask(tasksTables) {
-  let inputValue = document.querySelector('#taskInput').value;
-  let taskId = '_' + Math.random().toString(36).substr(2, 9);
+function createTask(tasksLists) {
+    let inputValue = document.querySelector('#taskInput').value;
+    let taskId = '_' + Math.random().toString(36).substr(2, 9);
 
-  if (inputValue !== undefined && inputValue !== "") {
-    let taskTableList = document.querySelector(`#${selectedTableId}`);
+    if (inputValue !== undefined && inputValue !== "" && inputValue.match(/^\s+$/) === null) {
+        let taskTableList = document.querySelector(`#${selectedListId}`);
 
-    let appendTask = taskTableList.appendChild(document.createElement('li'));
-    taskTableList.style = 'list-style: none';
+        let appendTask = taskTableList.appendChild(document.createElement('li'));
+        taskTableList.style = 'list-style: none';
 
-    tasksTables.forEach((tables)=>{
-      if (tables.tableId === selectedTableId){
-        tables.table.push({name: inputValue, taskId: taskId});
-        createItemInTable(appendTask, taskId, tables.table);
-      }
-    });
+        tasksLists.forEach((tables) => {
+            if (tables.listId === selectedListId) {
+                tables.tasks.push({name: inputValue, taskId: taskId});
+                createItemInTable(appendTask, taskId, tables.tasks);
+            }
+        });
 
 
-    createButtonsInTable(appendTask, taskId, tasksTables);
-    document.querySelector('#taskInput').value = "";
-    setToLocalStorage(tasksTables, taskId);
-  }
+        createButtonsInTable(appendTask, taskId, tasksLists);
+        document.querySelector('#taskInput').value = "";
+        setToLocalStorage(tasksLists, taskId);
+    }
 }

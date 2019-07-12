@@ -13,11 +13,11 @@
 
     <script src="js/components/creator/createButtonsInList.js"></script>
 
-    <script src="js/components/table/createTable.js"></script>
-    <script src="js/components/table/selectTable.js"></script>
-    <script src="js/components/table/removeTable.js"></script>
-    <script src="js/components/table/selectNewTable.js"></script>
-    <script src="js/components/table/setTableName.js"></script>
+    <script src="js/components/list/createList.js"></script>
+    <script src="js/components/list/selectList.js"></script>
+    <script src="js/components/list/removeList.js"></script>
+    <script src="js/components/list/selectNewList.js"></script>
+    <script src="js/components/list/setListName.js"></script>
 
     <script src="js/components/task/changeTask.js"></script>
     <script src="js/components/task/createTask.js"></script>
@@ -28,16 +28,16 @@
 </head>
 <body>
 <header><h3>Todo list</h3></header>
-<div style="display: flex">
+<div>
     <form>
         <div id="inputsWrap">
             <input type="text" id="taskInput" placeholder="task name">
             <input type="button" id="addTaskButton" value="Add task"/>
-            <input type="button" id="addList" value="Add table"/>
-            <input type="button" id="deleteList" value="Delete table"/>
+            <input type="button" id="addList" value="Add list"/>
+            <input type="button" id="deleteList" value="Delete list"/>
         </div>
-        <div id="taskTablesWrap" style="display: flex;"></div>
     </form>
+    <div id="taskTablesWrap" style="display: flex;"></div>
 </div>
 </body>
 </html>

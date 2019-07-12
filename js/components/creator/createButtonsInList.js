@@ -1,10 +1,11 @@
-function createButtonsInTable(appendTask, id, tasksTable) {
+function createButtonsInTable(appendTask, id, tasksList) {
+    console.log(tasksList);
     let deleteButton = appendTask.appendChild(document.createElement('input'));
     deleteButton.type = 'button';
     deleteButton.value = 'delete';
     deleteButton.setAttribute('id', `deleteButton${id}`);
     document.querySelector(`#deleteButton${id}`).addEventListener('click', () => {
-        removeTask(id, tasksTable);
+        removeTask(id, tasksList);
     });
 
     let changeButton = appendTask.appendChild(document.createElement('input'));
@@ -12,7 +13,7 @@ function createButtonsInTable(appendTask, id, tasksTable) {
     changeButton.value = 'change';
     changeButton.setAttribute('id', `changeButton${id}`);
     document.querySelector(`#changeButton${id}`).addEventListener('click', () => {
-        changeTask(id, tasksTable)
+        changeTask(id, tasksList)
     });
 
     let isFinishedTask = appendTask.appendChild(document.createElement('input'));
@@ -21,6 +22,6 @@ function createButtonsInTable(appendTask, id, tasksTable) {
     isFinishedTask.setAttribute('id', `ready${id}`);
     isFinishedTask.setAttribute('class', `isDone`);
     document.querySelector(`#ready${id}`).addEventListener('click', () => {
-        doneTask(id, tasksTable)
+        doneTask(id, tasksList)
     });
 }

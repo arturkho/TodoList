@@ -2,9 +2,9 @@ function doneTask(taskId, tasksTables) {
     let taskRow = document.querySelector(`#row${taskId}`);
 
     tasksTables.forEach((tables) => {
-        tables.table.forEach((task, index) => {
+        tables.tasks.forEach((task, index) => {
             if (task.taskId === taskId) {
-                tables.table.splice(index, 1,
+                tables.tasks.splice(index, 1,
                     {
                         name: task.name,
                         taskId: taskId,
